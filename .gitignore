@@ -216,3 +216,5 @@ ModelManifest.xml
 *.sln
 thirdParty/
 thirdParty/**
+
+quadcopter_simulation
