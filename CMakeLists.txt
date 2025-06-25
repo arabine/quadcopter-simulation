@@ -24,6 +24,11 @@ set(SOURCE_FILES
     src/sensorFusion.cpp
     src/timer.cpp
     src/utils_diffequation.cpp
+
+    # Telemetry source files
+    telemetry/drone_simulator.cpp
+    telemetry/mavlink_handler.cpp
+    telemetry/utils.cpp
 )
 
 # Define header files (optional for compilation, but good for IDEs)
@@ -54,6 +59,13 @@ set(HEADER_FILES
 
 # Add the executable
 add_executable(quadcopter_simulation ${SOURCE_FILES} ${HEADER_FILES})
+
+target_include_directories(quadcopter_simulation
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/telemetry
+)
+
 target_link_libraries(quadcopter_simulation
     Irrlicht
     pthread
